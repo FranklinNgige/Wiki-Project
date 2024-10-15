@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Login{% endblock %}{% load static %}
+{% extends 'base.html' %} {% block title %}Login{% endblock %} {% load static %}
 
 <!-- Empty blocks to override header and footer -->
 {% block footer %}{% endblock %} {% block content %}
@@ -10,6 +10,18 @@
         <span class="text-sm font-semibold uppercase">Sign in</span>
         <h4 class="max-w-xs font-heading text-3xl sm:text-4xl mt-2">Welcome back</h4>
       </div>
+
+      <!-- Display messages (success or error) -->
+      {% if messages %}
+      <div>
+        {% for message in messages %}
+        <div class="mb-4 {% if message.tags %} {{ message.tags }} {% endif %}">
+          <p class="text-red-500">{{ message }}</p>
+          <!-- Displays error message in red -->
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
 
       <!-- Sign In Form -->
       <form action="{% url 'login' %}" method="post">
