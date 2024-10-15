@@ -20,7 +20,7 @@
                   <a class="inline-block" href="#">
                     <img
                       src="https://static.shuffle.dev/uploads/files/11/1179a009b06c5dede6453a26646f459e14f7ee06/Colorful-Minimalist-SEO-Company-Logo-129-x-48-px.svg"
-                      alt=""
+                      alt="Logo"
                     />
                   </a>
                 </div>
@@ -35,6 +35,18 @@
               </div>
             </div>
             <div class="w-auto hidden lg:flex items-center">
+              {% if user.is_authenticated %}
+              <a
+                class="inline-block mr-12 py-4 px-8 font-heading font-medium text-base text-white bg-indigo-500 hover:bg-indigo-600 border border-indigo-500 hover:border-indigo-600 rounded-sm transition duration-200"
+                href="{% url 'user_portal' %}"
+                >My User Portal</a
+              >
+              <a
+                class="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-red-500 hover:bg-red-600 border border-red-500 hover:border-red-600 rounded-sm transition duration-200"
+                href="{% url 'logout' %}"
+                >Log out</a
+              >
+              {% else %}
               <a
                 class="inline-block mr-12 py-4 px-8 font-heading font-medium text-base text-white bg-indigo-500 hover:bg-indigo-600 border border-indigo-500 hover:border-indigo-600 rounded-sm transition duration-200"
                 href="{% url 'login' %}"
@@ -45,6 +57,7 @@
                 href="{% url 'signup' %}"
                 >Sign up</a
               >
+              {% endif %}
             </div>
             <div class="w-auto lg:hidden">
               <button
@@ -60,6 +73,7 @@
         </nav>
       </section>
     </header>
+
     {% endblock %}
 
     <main>{% block content %} {% endblock %}</main>

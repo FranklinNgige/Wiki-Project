@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} {% block title %}Login{% endblock %}{% load static %}
 
 <!-- Empty blocks to override header and footer -->
 {% block footer %}{% endblock %} {% block content %}
@@ -15,13 +15,13 @@
       <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div class="mb-4">
-          <label class="block text-sm leading-6 mb-2" for="email">E-mail address</label>
+          <label class="block text-sm leading-6 mb-2" for="username">Username </label>
           <input
             class="block w-full p-4 font-heading text-gray-900 placeholder-gray-300 bg-gray-50 rounded outline-none"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Type e-mail"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Type your username"
             required
           />
         </div>

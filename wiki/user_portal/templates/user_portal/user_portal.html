@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}User Portal{% endblock %}
+
+{% block content %}
+<div class="flex">
+  <!-- Sidebar (Vertical Navigation) -->
+  <div class="w-64 h-screen bg-white shadow-lg flex flex-col justify-between">
+    <div>
+      <!-- Profile Section -->
+      <div class="p-6 text-center" data-read-aloud-multi-block="true">
+        <img
+          src="https://static.shuffle.dev/uploads/files/11/1179a009b06c5dede6453a26646f459e14f7ee06/Untitled-design.png"
+          alt="Profile Picture"
+          class="w-20 h-20 rounded-full mx-auto mb-4"
+        />
+        <h3 class="text-lg font-semibold">Franklin N</h3>
+        <p class="text-sm text-gray-600">Admin</p>
+      </div>
+      <!-- Navigation Links -->
+      <div class="p-6">
+        <nav class="space-y-4">
+          <a href="create_form.html" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewbox="0 0 20 20" fill="currentColor">
+              <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-6V7a1 1 0 112 0v5a1 1 0 11-2 0z"></path>
+            </svg>
+            Create Post
+          </a>
+          <a href="create_categories.html" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-7 5h7"></path>
+            </svg>
+            Create Categories
+          </a>
+          <a href="view_categories.html" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewbox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+            </svg>
+            View Category List
+          </a>
+          <a href="assign_user.html" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7"></path>
+            </svg>
+            Assign Roles
+          </a>
+          <a href="#" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.656 0-3 1.343-3 3s1.344 3 3 3 3-1.343 3-3-1.344-3-3-3zM12 2C6.485 2 2 6.486 2 12s4.485 10 10 10 10-4.486 10-10S17.515 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"
+              ></path>
+            </svg>
+            My Drafts
+          </a>
+          <a href="#" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-7 5h7"></path>
+            </svg>
+            Media
+          </a>
+          <a href="#" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            Trash
+          </a>
+        </nav>
+      </div>
+    </div>
+    <!-- Logout Button -->
+    <div class="p-6">
+      <a href="logout.html" class="flex items-center py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7"></path>
+        </svg>
+        Logout
+      </a>
+    </div>
+  </div>
+  <!-- Main Content -->
+  <div class="flex-1 p-10">
+    <section class="px-6 bg-white shadow">
+      <nav>
+        <div class="relative flex items-center py-6">
+          <div class="flex items-center mr-auto">
+            <a class="flex items-center text-sm hover:text-gray-800" href="#">
+              <span class="inline-block mr-2">
+                <svg class="text-indigo-500" width="16" height="18" viewbox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M14.6667 5.66667L9.66668 1.28333C9.20833 0.87337 8.61496 0.646723 8.00002 0.646723C7.38507 0.646723 6.7917 0.87337 6.33335 1.28333L1.33335 5.66667C1.06866 5.90339 0.857435 6.1938 0.713745 6.51854C0.570054 6.84328 0.497195 7.1949 0.500018 7.55V14.8333C0.500018 15.4964 0.76341 16.1323 1.23225 16.6011C1.70109 17.0699 2.33698 17.3333 3.00002 17.3333H13C13.6631 17.3333 14.2989 17.0699 14.7678 16.6011C15.2366 16.1323 15.5 15.4964 15.5 14.8333V7.54167C15.5017 7.18797 15.4282 6.83795 15.2846 6.51473C15.1409 6.19152 14.9303 5.90246 14.6667 5.66667V5.66667ZM9.66668 15.6667H6.33335V11.5C6.33335 11.279 6.42115 11.067 6.57743 10.9107C6.73371 10.7545 6.94567 10.6667 7.16668 10.6667H8.83335C9.05436 10.6667 9.26633 10.7545 9.42261 10.9107C9.57889 11.067 9.66668 11.279 9.66668 11.5V15.6667ZM13.8334 14.8333C13.8334 15.0543 13.7456 15.2663 13.5893 15.4226C13.433 15.5789 13.221 15.6667 13 15.6667H11.3334V11.5C11.3334 10.837 11.07 10.2011 10.6011 9.73223C10.1323 9.26339 9.49639 9 8.83335 9H7.16668C6.50364 9 5.86776 9.26339 5.39892 9.73223C4.93008 10.2011 4.66668 10.837 4.66668 11.5V15.6667H3.00002C2.779 15.6667 2.56704 15.5789 2.41076 15.4226C2.25448 15.2663 2.16668 15.0543 2.16668 14.8333V7.54167C2.16683 7.42334 2.19218 7.30641 2.24103 7.19865C2.28989 7.09088 2.36113 6.99476 2.45002 6.91667L7.45002 2.54167C7.60209 2.40807 7.79759 2.33439 8.00002 2.33439C8.20244 2.33439 8.39794 2.40807 8.55002 2.54167L13.55 6.91667C13.6389 6.99476 13.7101 7.09088 13.759 7.19865C13.8079 7.30641 13.8332 7.42334 13.8334 7.54167V14.8333Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <span>Home</span>
+            </a>
+            <span class="inline-block mx-3"></span>
+            <a class="flex items-center text-sm hover:text-gray-800" href="#">
+              <span class="inline-block mr-2"></span>
+            </a>
+          </div>
+          <div class="flex justify-end lg:hidden">
+            <button class="flex items-center">
+              <svg class="text-indigo-500 bg-indigo-100 block h-8 w-8 p-2 rounded" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <title>Mobile menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:w-auto lg:space-x-10">
+            <div class="hidden lg:flex items-center mr-auto pl-4 border rounded">
+              <button class="mr-2 text-gray-200 hover:text-gray-300">
+                <svg class="h-5 w-5" viewbox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.7 19.3L17 15.6C20.1 11.7 19.5 6 15.6 2.9C11.7 -0.2 5.99999 0.5 2.89999 4.3C-0.200006 8.2 0.499995 13.9 4.29999 17C7.59999 19.6 12.3 19.6 15.6 17L19.3 20.7C19.7 21.1 20.3 21.1 20.7 20.7C21.1 20.3 21.1 19.7 20.7 19.3ZM9.99999 17C6.09999 17 2.99999 13.9 2.99999 10C2.99999 6.1 6.09999 3 9.99999 3C13.9 3 17 6.1 17 10C17 13.9 13.9 17 9.99999 17Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </button>
+              <input class="pl-2 py-3 text-sm text-gray-200" type="text" placeholder="Type to search..." />
+            </div>
+          </div>
+          <ul class="hidden lg:flex lg:justify-end mr-6">
+            <li class="mr-6"><a class="text-gray-200 hover:text-gray-300" href="#"></a></li>
+            <li class="mr-6"><a class="text-gray-200 hover:text-gray-300" href="#"></a></li>
+          </ul>
+          <div class="hidden lg:block">
+            <button class="flex items-center">
+              <div class="mr-3">
+                <p class="text-sm">Franklin Ngige</p>
+                <p class="text-sm text-gray-500">Admin</p>
+              </div>
+              <div class="mr-2">
+                <img
+                  class="w-10 h-10 rounded-full object-cover object-right"
+                  src="https://static.shuffle.dev/uploads/files/11/1179a009b06c5dede6453a26646f459e14f7ee06/Untitled-design.png"
+                  alt=""
+                />
+              </div>
+              <span>
+                <svg class="text-gray-400" width="10" height="6" viewbox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.08335 0.666657C8.75002 0.333323 8.25002 0.333323 7.91669 0.666657L5.00002 3.58332L2.08335 0.666657C1.75002 0.333323 1.25002 0.333323 0.916687 0.666657C0.583354 0.99999 0.583354 1.49999 0.916687 1.83332L4.41669 5.33332C4.58335 5.49999 4.75002 5.58332 5.00002 5.58332C5.25002 5.58332 5.41669 5.49999 5.58335 5.33332L9.08335 1.83332C9.41669 1.49999 9.41669 0.99999 9.08335 0.666657Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- Welcome Section -->
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold">Welcome, Franklin Ngige</h1>
+    </div>
+    <!-- Post List (Main Table) -->
+    <div class="bg-white shadow-lg rounded-md p-6">
+      <h2 class="text-xl font-semibold mb-4">List Tutorials</h2>
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="bg-indigo-500 text-left text-white uppercase text-sm leading-normal">
+            <th class="py-3 px-6">Topics</th>
+            <th class="py-3 px-6">Comments</th>
+            <th class="py-3 px-6">Views</th>
+            <th class="py-3 px-6">Last Post</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6">Edit, update and unlock requests</td>
+            <td class="py-3 px-6">02</td>
+            <td class="py-3 px-6">1k</td>
+            <td class="py-3 px-6">By Adam Smith, Thu Sept 04, 2022</td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6">Before posting - search form / wiki / status</td>
+            <td class="py-3 px-6">00</td>
+            <td class="py-3 px-6">864</td>
+            <td class="py-3 px-6">By Koyla Mickle, Thu Sept 04, 2022</td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6">Windows updates vs Android & iPhone</td>
+            <td class="py-3 px-6">23</td>
+            <td class="py-3 px-6">752</td>
+            <td class="py-3 px-6">By Adam Smith, Thu Sept 04, 2022</td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6">Windows Update?</td>
+            <td class="py-3 px-6">16</td>
+            <td class="py-3 px-6">1.7k</td>
+            <td class="py-3 px-6">By Koyla Mickle, Thu Sept 04, 2022</td>
+          </tr>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6">iPhone version 15.4 in App Store?</td>
+            <td class="py-3 px-6">01</td>
+            <td class="py-3 px-6">345</td>
+            <td class="py-3 px-6">By Adam Smith, Thu Sept 04, 2022</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
