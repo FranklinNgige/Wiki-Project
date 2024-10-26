@@ -118,13 +118,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",  # Ensure this points to the static directory in your project root
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redirects users to the login page if they are not authenticated
+LOGIN_URL = '/login/'
+
+
+SESSION_COOKIE_SECURE = False  # Ensure this is false for local development
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
