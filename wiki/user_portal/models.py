@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -24,7 +26,7 @@ class Post(models.Model):
     meta_title = models.CharField(max_length=255)
     author = models.CharField(max_length=100)  # or ForeignKey to the User model if author is linked to users
     tags = models.CharField(max_length=255, blank=True, null=True)  # Use ManyToManyField if you need multiple tags
-    body = models.TextField()
+    body = RichTextField()
     meta_description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='posts/', blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)

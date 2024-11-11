@@ -10,7 +10,8 @@ from django.core.paginator import Paginator
 
 @login_required
 def user_portal(request):
-    return render(request, 'user_portal/user_portal.html')  
+    posts = Post.objects.all()  # Adjust the filter condition as needed
+    return render(request, 'user_portal/user_portal.html', {'posts': posts})  
 
 def create_post(request):
     if request.method == 'POST':
@@ -31,7 +32,16 @@ def post_list(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    return render(request, 'user_portal/post_detail.html', {'post': post})
+    tags = [tag.strip() for tag in post.tags.split(',')]
+    
+    # Find related posts based on category or tags (excluding the current post)
+    related_posts = Post.objects.filter(category=post.category).exclude(id=post.id)[:3]
+    
+    return render(request, 'user_portal/post_detail.html', {
+        'post': post,
+        'tags': tags,
+        'related_posts': related_posts
+    })
 
 def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -41,6 +51,7 @@ def edit_post(request, post_id):
         if form.is_valid():
             form.save()
             return redirect('post_detail', post_id=post.id)
+        
     else:
         form = PostForm(instance=post)
     
@@ -48,11 +59,13 @@ def edit_post(request, post_id):
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    
     if request.method == 'POST':
-        post.deleted = True  # Mark the post as deleted (soft delete)
-        post.save()
-        return redirect('post_list')
-    return render(request, 'user_portal/delete_post_confirm.html', {'post': post})
+        post.delete()
+        return redirect('post_list')  # Redirect to the post list after deletion
+    
+    # Render the delete confirmation template for GET requests
+    return render(request, 'user_portal/delete_post.html', {'post': post})
 
 
 def create_category(request):

@@ -24,6 +24,14 @@
           Create Post
         </a>
 
+        <a href="{% url 'post_list' %}" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewbox="0 0 20 20" fill="currentColor">
+            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-6V7a1 1 0 112 0v5a1 1 0 11-2 0z"></path>
+          </svg>
+          View Posts
+        </a>
+        
+
         <a href="{% url 'create_category' %}" class="flex items-center py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewbox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-7 5h7"></path>
